@@ -1,7 +1,6 @@
-package br.edu.ifpb.ads.padroes.atv1.rpg;
+package br.edu.ifpb.ads.padroes.atv1.rpg.equipamentos;
 
 public class Armadura {
-
     private String nome;
     private int defesa;
     private String tipo;
@@ -12,16 +11,7 @@ public class Armadura {
         this.tipo = tipo;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public int getDefesa() {
-        return defesa;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
+    public String getNome() { return nome; }
+    public int getDefesa() { return defesa; }
+    public String getTipo() { return tipo; }
 }

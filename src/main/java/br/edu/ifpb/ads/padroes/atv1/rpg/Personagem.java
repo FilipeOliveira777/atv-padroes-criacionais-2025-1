@@ -1,22 +1,21 @@
 package br.edu.ifpb.ads.padroes.atv1.rpg;
 
-public class Personagem {
+import br.edu.ifpb.ads.padroes.atv1.rpg.equipamentos.Arma;
+import br.edu.ifpb.ads.padroes.atv1.rpg.equipamentos.Armadura;
 
+public class Personagem implements Cloneable {
     private String nome;
     private String raca;
     private String classe;
-    private int forca;
-    private int inteligencia;
-    private int agilidade;
-    private int vida;
-    private int mana;
+    private int forca, inteligencia, agilidade, vida, mana;
     private Arma arma;
     private Armadura armadura;
     private String[] habilidades;
 
-    public Personagem(String nome, String raca, String classe, int forca,
-                      int inteligencia, int agilidade, int vida, int mana,
-                      Arma arma, Armadura armadura, String[] habilidades) {
+    public Personagem(String nome, String raca, String classe,
+                      int forca, int inteligencia, int agilidade,
+                      int vida, int mana, Arma arma,
+                      Armadura armadura, String[] habilidades) {
         this.nome = nome;
         this.raca = raca;
         this.classe = classe;
@@ -30,53 +29,14 @@ public class Personagem {
         this.habilidades = habilidades;
     }
 
-    // Getters e Setters básicos
-    public String getNome() {
-        return nome;
-    }
-
-    public String getRaca() {
-        return raca;
-    }
-
-    public String getClasse() {
-        return classe;
-    }
-
-    public int getForca() {
-        return forca;
-    }
-
-    public int getInteligencia() {
-        return inteligencia;
-    }
-
-    public int getAgilidade() {
-        return agilidade;
-    }
-
-    public int getVida() {
-        return vida;
-    }
-
-    public int getMana() {
-        return mana;
-    }
-
-    public Arma getArma() {
-        return arma;
-    }
-
-    public Armadura getArmadura() {
-        return armadura;
-    }
-
-    public String[] getHabilidades() {
-        return habilidades;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Personagem clone() {
+        try {
+            Personagem clone = (Personagem) super.clone();
+            clone.habilidades = this.habilidades.clone(); // clone profundo
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 
     @Override
@@ -84,5 +44,4 @@ public class Personagem {
         return String.format("%s - %s %s (F:%d, I:%d, A:%d, V:%d, M:%d)",
                 nome, raca, classe, forca, inteligencia, agilidade, vida, mana);
     }
-
 }

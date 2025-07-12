@@ -1,7 +1,6 @@
-package br.edu.ifpb.ads.padroes.atv1.rpg;
+package br.edu.ifpb.ads.padroes.atv1.rpg.equipamentos;
 
 public class Arma {
-
     private String nome;
     private int dano;
     private String tipo;
@@ -12,15 +11,7 @@ public class Arma {
         this.tipo = tipo;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public int getDano() {
-        return dano;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
+    public String getNome() { return nome; }
+    public int getDano() { return dano; }
+    public String getTipo() { return tipo; }
 }
